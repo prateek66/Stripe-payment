@@ -28,14 +28,16 @@ exports.getPostById =(req, res, next)=> {
 exports.createPost= (req, res, next)=> {
   const title = req.body.title;
   const content = req.body.content;
+  const author = req.body.author
 
-  if (!title || !content) {
+  if (!title || !content ||!author) {
     res.status(500).json({ error: 'All Fields Are Required.' });
   }
 
   const post = new Post({
     title,
-    content
+    content,
+    author
   });
 
   post.save()
