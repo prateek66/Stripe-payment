@@ -6,7 +6,10 @@ const config = require('./config')
 const app = express();
 
 // init mongoose
-mongoose.connect(config.db);
+mongoose.connect(config.db, {useNewUrlParser: true})
+.then(() => console.log("connected successfully"))
+.catch((err) => {return console.error("Could not connect:", err)} );
+
 
 // express middleware
 app.use(bodyParser.urlencoded({ extended: false }));
