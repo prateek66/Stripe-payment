@@ -18,8 +18,9 @@ const PostSchema = new Schema({
     required: true
   },
   author: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+    type: String,
+    default:'',
+    required:true
   },
   ispublished:{
       type:Boolean,
