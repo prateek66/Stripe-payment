@@ -2,8 +2,12 @@ const express = require ('express')
 const mongoose =require ('mongoose')
 const bodyParser = require ('body-parser')
 const router = require('./routes/post')
-const config = require('./config')
+const config = require('./config');
+const cors = require('cors');
+
 const app = express();
+app.use(cors());
+
 
 // init mongoose
 mongoose.connect(config.db, {useNewUrlParser: true})
@@ -12,8 +16,8 @@ mongoose.connect(config.db, {useNewUrlParser: true})
 
 
 // express middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({limit: '5000kb'}));
 let server;
 if (process.env.NODE_ENV !== config.test_env) {
   server = app.listen(config.port);
