@@ -30,19 +30,16 @@ exports.getPostById =(req, res, next)=> {
 }
 
 // create post
-exports.createPost= (req, res, next)=> {
+exports.createPost= (req, res, next) => {
   const title = req.body.title;
   const content = req.body.content;
   const author = req.body.author;
-<<<<<<< HEAD
   const category = req.body.category;
 
   if (!title || !content ||!author||!category) {
-=======
   const description = req.body.description;
 
   if (!title || !content ||!author ||!description ) {
->>>>>>> e85925573cc4c025feb5afe5c13b79a79201e7aa
     res.status(500).json({ error: 'All Fields Are Required.' });
   }
 
@@ -50,11 +47,8 @@ exports.createPost= (req, res, next)=> {
     title,
     content,
     author,
-<<<<<<< HEAD
-    category
-=======
+    category,
     description
->>>>>>> e85925573cc4c025feb5afe5c13b79a79201e7aa
   });
 
   post.save()
@@ -64,6 +58,7 @@ exports.createPost= (req, res, next)=> {
   .catch((err) => {
     res.status(500).json({ err });
   })
+}
 }
 
 
@@ -102,8 +97,10 @@ exports.deletePost = (req, res, next)=> {
 //    const url = 'http://localhost:3000/'+img
 //     res.send('file uploaded succesfully'+ url)
 //  }
+
+
 exports.getpostByCategories = (req, res)=> {
-  const _id = req.params._id
+  const _id = req.params._id;
   Post.find({category:_id}).populate('category')
   .then((posts) => {
     res.status(200).json({ posts });
@@ -112,6 +109,3 @@ exports.getpostByCategories = (req, res)=> {
     res.status(500).json({ err });
   })
 }
-
-  
-
