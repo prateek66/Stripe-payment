@@ -34,9 +34,15 @@ exports.createPost= (req, res, next)=> {
   const title = req.body.title;
   const content = req.body.content;
   const author = req.body.author;
+<<<<<<< HEAD
   const category = req.body.category;
 
   if (!title || !content ||!author||!category) {
+=======
+  const description = req.body.description;
+
+  if (!title || !content ||!author ||!description ) {
+>>>>>>> e85925573cc4c025feb5afe5c13b79a79201e7aa
     res.status(500).json({ error: 'All Fields Are Required.' });
   }
 
@@ -44,7 +50,11 @@ exports.createPost= (req, res, next)=> {
     title,
     content,
     author,
+<<<<<<< HEAD
     category
+=======
+    description
+>>>>>>> e85925573cc4c025feb5afe5c13b79a79201e7aa
   });
 
   post.save()
