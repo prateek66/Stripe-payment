@@ -27,8 +27,10 @@ const PostSchema = new Schema({
       default:false
   },
   category:{
-      type:Schema.Types.ObjectId,
-      ref:'category'
+    type: Schema.Types.ObjectId, ref: 'Category'
+  },
+  uploads:{
+
   }
 });
 

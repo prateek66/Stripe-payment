@@ -4,7 +4,7 @@ const bodyParser = require ('body-parser')
 const router = require('./routes/post')
 const config = require('./config')
 const app = express();
-
+const category = require('./routes/category')
 // init mongoose
 mongoose.connect(config.db);
 
@@ -22,6 +22,8 @@ if (process.env.NODE_ENV !== config.test_env) {
 
 // router
 router(app);
+category(app);
+//app.use('/category',category)
 
 // export
 module.exports = server;

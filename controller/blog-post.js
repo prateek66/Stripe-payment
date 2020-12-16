@@ -1,8 +1,13 @@
+const { json } = require('body-parser');
+const { db } = require('../schema/blogs');
+const blogs = require('../schema/blogs');
 const Post = require('../schema/blogs')
+//const category = require('../schema/category')
+
 
 // get all posts
 exports.getAllPosts = (req, res, next)=> {
-  Post.find()
+  Post.find().populate('category')
   .then((posts) => {
     res.status(200).json({ posts });
   })
@@ -28,16 +33,18 @@ exports.getPostById =(req, res, next)=> {
 exports.createPost= (req, res, next)=> {
   const title = req.body.title;
   const content = req.body.content;
-  const author = req.body.author
+  const author = req.body.author;
+  const category = req.body.category;
 
-  if (!title || !content ||!author) {
+  if (!title || !content ||!author||!category) {
     res.status(500).json({ error: 'All Fields Are Required.' });
   }
 
   const post = new Post({
     title,
     content,
-    author
+    author,
+    category
   });
 
   post.save()
@@ -76,3 +83,25 @@ exports.deletePost = (req, res, next)=> {
     res.status(500).json({ err });
   })
 }
+
+//image upload
+//  exports.documentUpload  = async (req, res) =>{
+
+//    console.log(req.file.path);
+//    var img = req.file.path
+//    const url = 'http://localhost:3000/'+img
+//     res.send('file uploaded succesfully'+ url)
+//  }
+exports.getpostByCategories = (req, res)=> {
+  const _id = req.params._id
+  Post.find({category:_id}).populate('category')
+  .then((posts) => {
+    res.status(200).json({ posts });
+  })
+  .catch((err) => {
+    res.status(500).json({ err });
+  })
+}
+
+  
+

@@ -2,15 +2,13 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const category = new Schema({
-    _id: mongoose.Schema.Types.ObjectId,
         title:{
             type:String
+        },
+        
+        post:{
+             type: Schema.Types.ObjectId, ref: 'Post'
         }
-    ,
-    post: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'blogs'
-    }
+
 })    
-
-
+module.exports= mongoose.model('Category', category);
