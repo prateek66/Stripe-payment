@@ -6,13 +6,10 @@ const config = require('./config');
 const cors = require('cors');
 
 const app = express();
-<<<<<<< HEAD
 const category = require('./routes/category')
-=======
-app.use(cors());
+//app.use(cors());
 
 
->>>>>>> e85925573cc4c025feb5afe5c13b79a79201e7aa
 // init mongoose
 mongoose.connect(config.db, {useNewUrlParser: true})
 .then(() => console.log("connected successfully"))

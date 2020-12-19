@@ -36,7 +36,7 @@ module.exports = app => {
   // delete user by id
   app.delete('/delete/:id', blogPost.deletePost);
 
-  app.get('/getpostByCategories/:_id', blogPost.getpostByCategories);
+ app.get('/getpostByCategories/:_id', blogPost.getpostByCategories);
 
   //category
 

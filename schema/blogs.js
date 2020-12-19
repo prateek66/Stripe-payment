@@ -22,11 +22,11 @@ const PostSchema = new Schema({
     default:'',
     required:true
   },
-  description: {
-    type: String,
-    default:'',
-    required:true
-  },
+  // description: {
+  //   type: String,
+  //   default:'',
+  //   required:true
+  // },
   ispublished:{
       type:Boolean,
       default:false
