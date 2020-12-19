@@ -6,7 +6,8 @@ const config = require('./config');
 const cors = require('cors');
 
 const app = express();
-const category = require('./routes/category')
+const category = require('./routes/category');
+const categoriesRouter = require('./routes/blogCategory');
 app.use(cors());
 
 
@@ -28,9 +29,11 @@ if (process.env.NODE_ENV !== config.test_env) {
   console.log(`Server listening on port ${config.test_port}`);
 }
 
+//app.use('/',router)
+app.use('/category', categoriesRouter)
 // router
 router(app);
-category(app);
+//category(app);
 //app.use('/category',category)
 
 // export
