@@ -8,7 +8,7 @@ require('./db/mongoose')
 
 
 const post = require('./routes/post');
-const category = require('./routes/category')
+const category = require('./routes/blogCategory')
 
 
 const app = express();

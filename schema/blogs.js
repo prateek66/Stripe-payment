@@ -32,10 +32,15 @@ const PostSchema = new Schema({
       default:false
   },
   category:{
-    type: Schema.Types.ObjectId, ref: 'Category'
+    type: []
   },
   uploads:{
 
+  },
+  thumbnail: {
+    type: String,
+    default:'',
+    required:true
   }
 });
 

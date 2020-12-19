@@ -35,11 +35,12 @@ exports.createPost= (req, res, next) => {
   const content = req.body.content;
   const author = req.body.author;
   const category = req.body.category;
+  const thumbnail = req.body.thumbnail;
 
   if (!title || !content ||!author||!category) {
   const description = req.body.description;
 
-  if (!title || !content ||!author ||!description ) {
+  if (!title || !content ||!author ||!description ||!thumbnail ) {
     res.status(500).json({ error: 'All Fields Are Required.' });
   }
 
@@ -48,7 +49,8 @@ exports.createPost= (req, res, next) => {
     content,
     author,
     category,
-    description
+    description,
+    thumbnail
   });
 
   post.save()
