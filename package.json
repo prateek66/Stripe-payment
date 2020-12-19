@@ -4,7 +4,7 @@
   "description": "",
   "main": "config.js",
   "scripts": {
-    "test": "git add . && git commit -m 'updation' && git push origin prateek",
+    "test": "git add . && git commit -m 'updation' && git push origin master",
     "dev": "nodemon server-blog.js"
   },
   "keywords": [],
