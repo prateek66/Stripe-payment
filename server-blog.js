@@ -7,7 +7,11 @@ const cors = require('cors');
 
 const app = express();
 const category = require('./routes/category')
+<<<<<<< HEAD
 //app.use(cors());
+=======
+app.use(cors());
+>>>>>>> c86fb3fb38e626815c22c4a162fc3d8334c33a95
 
 
 // init mongoose
